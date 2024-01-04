@@ -42,6 +42,7 @@ nav{
     top:0;
     left:0;
     box-shadow:0rem 1rem 2rem rgba(0, 0, 0, 0.292);
+    z-index:1;
 }
 
 nav::before{
@@ -188,11 +189,12 @@ main #container{
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
 }
 
 #resultContainer{
     height: 70vh;
-    width: 70vw;
+    width: 80vw;
     background-color: var(--unselected-option-color);
     border-radius: 2rem;
     display: flex;
