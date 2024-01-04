@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap');
+
+:root{
+    --nav-background: #334175;
+    --body-background-color: #040a28;
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Raleway', sans-serif;
+    --unselected-option-color: #aabcbb;
+    --submit-button-color: #ff6f00;
+    --correct-option-background: rgb(170, 204, 170);
+    --wrong-option-background: rgb(217, 179, 179);
+    --bold-heading-font: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    --score-green: rgb(22, 173, 5);
+}
+button{
+    border: 0;
+    outline: none;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: var(--body-background-color);
+}
+
+nav{
+    height: 17vh;
+    width:100%;
+    color:white;
+    background-color: var(--nav-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 2rem var(--heading-font);
+    border-bottom-left-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+    position:sticky;
+    top:0;
+    left:0;
+    box-shadow:0rem 1rem 2rem rgba(0, 0, 0, 0.292);
+}
+
+nav::before{
+    content: '';
+    height: 17vh;
+    width: 100%;
+    position: absolute;
+}
+
+main{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top:5vh;
+}
+
+main #container{
+    display: flex;
+    width:82vw;
+    background-color: var(--nav-background);
+    height: 10vh;
+    color: white;
+    border-radius: 0.4rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    font: 1.6rem var(--body-font);
+    cursor: pointer;
+    transition: 0.1s;
+}
+#container:hover{
+    transform: scale(1.05);
+}
+#container i{
+    margin-right: 1rem;
+    padding:1px;
+}
+
+#heading{
+    font: 1.5rem var(--body-font);
+    color: white;
+    padding-bottom: 2px;
+    border-bottom: 2px solid white;
+    width:85vw;
+    padding-left:4px;
+    padding-right:4px;
+}
+
+#question{
+    color: white;
+    font: 1.1rem var(--body-font);
+    margin-top:2rem;
+    width:85%;
+    padding-left:10px;
+    padding-right:10px;
+    margin-bottom: 3rem;
+}
+
+#options{
+    margin-top:2rem;
+    width:85vw;
+    padding-left:10px;
+    padding-right:10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.option{
+    width: 100%;
+    min-height:4rem;
+    background-color: var(--unselected-option-color);
+    border-radius: 4rem;
+    margin-bottom:1rem;
+    display: flex;
+    align-items: center;
+    font: 1.2rem var(--body-font);
+    cursor:pointer;
+    font-weight: bolder;
+    padding:1rem;
+    text-align: left;
+    word-break:break-word;
+}
+
+
+.option span{
+    font: 1.4rem var(--heading-font);
+    color:white;
+    background-color: var(--submit-button-color);
+    border-radius: 4rem;
+    min-width:3rem;
+    min-height: 3rem;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right:1rem;
+    box-shadow: 0 0 0.2rem black;
+}
+
+.option:hover, .selected{
+    background-color: antiquewhite;
+}
+.selected{
+    outline: 5px solid var(--submit-button-color);
+}
+
+.correct, .correct:hover{
+    outline:5px solid green;
+    background: var(--correct-option-background);
+    color: green;
+}
+
+.wrong, .wrong:hover{
+    outline:5px solid red;
+    background: var(--wrong-option-background);
+    color: red;
+}
+
+
+#submit{
+    position:sticky;
+    bottom: 0.8rem;
+    width:85vw;
+    height: 4rem;
+    font: 1.2rem var(--heading-font);
+    border-radius: 0.5rem;
+    background-color: var(--submit-button-color);
+    color:white;
+    cursor: white;
+    margin-top: 1.5rem;
+    box-shadow: 0 0 1rem black;
+    cursor: pointer;
+}
+
+
+#resultModul{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: var(--body-background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#resultContainer{
+    height: 70vh;
+    width: 70vw;
+    background-color: var(--unselected-option-color);
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#trophyImageContainer{
+    height: 10rem;
+    width: 10rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#trophyImageContainer img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+#congrats, #completion{
+    font-family: var(--bold-heading-font);
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin-top:1rem;
+}
+
+#completion{
+    font-size: 1.2rem;
+}
+
+#score{
+    font-family: var(--bold-heading-font);
+    font-weight: 900;
+    color: var(--score-green);
+    font-size: 3rem;
+    margin-top:3rem;
+}
+
+#report{
+    width: 70%;
+    text-align: center;
+    margin-top: 1rem;
+    font-family: var(--body-font);
+    font-weight: bolder;
+}
+
+#loadingScreen{
+    height:100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--body-background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: var(--bold-heading-font);
+    font-size: 4rem;
+}
+
+#loadingScreen span:nth-child(1){
+    animation: loadingScreenDotAnimation 1s ease none infinite;
+}
+#loadingScreen span:nth-child(2){
+    animation: loadingScreenDotAnimation 1s ease 0.2s infinite;
+}
+#loadingScreen span:nth-child(3){
+    animation: loadingScreenDotAnimation 1s ease 0.4s infinite;
+}
+
+@keyframes loadingScreenDotAnimation {
+    0%{
+        transform: translateY(0rem);
+    }
+    50%{
+        transform: translateY(-1rem);
+    }
+    100%{
+        transform: translateY(0rem);
+    }
+}
+
+@keyframes optionNotSelected {
+    0%{
+        transform: translateX(0rem);
+    }
+    50%{
+        transform: translateX(-1rem);
+    }
+    100%{
+        transform: translateX(0rem);
+    }
+}
+
+.animateWhenNotSelectedAnswer{
+    z-index: -1;
+    animation:optionNotSelected 0.2s ease none 2;
+}
